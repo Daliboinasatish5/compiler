@@ -16,9 +16,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/codecompiler', {
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://satishdaliboina:<db_password>@cluster0.ph8iyav.mongodb.net/problems?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Connected to MongoDB Atlas successfully');
+})
+.catch((error) => {
+  console.error('MongoDB connection error:', error);
+  process.exit(1);
 });
 
 // Problem Schema
