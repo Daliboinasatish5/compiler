@@ -72,7 +72,7 @@ const sampleProblems = [
 async function seedProblems() {
   try {
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/codecompiler', {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://satishdaliboina:satish@143@cluster0.ph8iyav.mongodb.net/problems?retryWrites=true&w=majority&appName=Cluster0', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
